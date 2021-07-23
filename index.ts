@@ -72,27 +72,34 @@ async function issue() {
         tokenSymbol: "test",
         decimalNum: 8,
       });
+    const issueAmount = "1000000000000000"
 
-    console.log(genesis, codehash, sensibleId)
+    console.log({genesis, codehash, sensibleId})
+
+    await sleep(3000)
 
     const address = bsv.PrivateKey(config.wif).toAddress()
 
-    let { txid2 } = await ft.issue({
+    const res = await ft.issue({
         genesis: genesis,
         codehash: codehash,
         sensibleId: sensibleId,
         genesisWif: config.wif,
         receiverAddress: address.toString(),
-        tokenAmount: "100000000000",
+        tokenAmount: issueAmount,
         allowIncreaseIssues: false, //if true then you can issue again
       });
-      console.log("genesis ", txid, ", token ", txid2)
+      console.log("token txid ", res.txid)
 }
 
 async function main() {
     await init()
-    //await issue()
-    await airdrop()
+    if (process.argv[2] == 'issue') {
+        await issue()
+    }
+    else { 
+        await airdrop()
+    }
 }
 
 main()

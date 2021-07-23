@@ -3,7 +3,7 @@
 ## 安装
 ```npm i```
 
-## 使用方法
+## 空投
 
 ### 1 生成mc的地址列表mc_balance.json
 ```
@@ -33,4 +33,21 @@ cp ft_config_template.json ft_config.json
 ### 3 运行
 ```
 ts-node index.ts
+```
+
+## 发币
+
+根据自己需要修改代码里
+```
+    let { txid, genesis, codehash, sensibleId } = await ft.genesis({
+        genesisWif: config.wif,
+        tokenName: "testnet coin",
+        tokenSymbol: "test",
+        decimalNum: 8,
+      });
+    const issueAmount = "1000000000000000"
+```
+然后运行
+```
+ts-node index.ts issue
 ```
