@@ -37,7 +37,7 @@ ts-node index.ts
 
 ## 发币
 
-根据自己需要修改代码里
+根据自己需要修改代码index.ts
 ```
     let { txid, genesis, codehash, sensibleId } = await ft.genesis({
         genesisWif: config.wif,
