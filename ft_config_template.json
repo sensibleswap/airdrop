@@ -1,0 +1,8 @@
+{
+    "network": "testnet",
+    "wif": "",
+    "address": "mzJR1zKcZCZvMJj87rVqmFFxmaVEe62BBW",
+    "codehash": "777e4dd291059c9f7a0fd563f7204576dcceb791",
+    "genesis": "e616a7e2367f640485e8f9148a0320e4a71ab83f",
+    "address_file": "mc_balance.json"
+}
