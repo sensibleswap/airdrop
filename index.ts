@@ -75,12 +75,14 @@ async function issue() {
 
     console.log(genesis, codehash, sensibleId)
 
+    const address = bsv.PrivateKey(config.wif).toAddress()
+
     let { txid2 } = await ft.issue({
         genesis: genesis,
         codehash: codehash,
         sensibleId: sensibleId,
         genesisWif: config.wif,
-        receiverAddress: config.address,
+        receiverAddress: address.toString(),
         tokenAmount: "100000000000",
         allowIncreaseIssues: false, //if true then you can issue again
       });
